@@ -2,13 +2,14 @@
 using namespace std;
 
 // n is matrix size
-int det(int* matrix, int n)
+//The function that Calculates the determinant of any n*n matrix
+double det(double* matrix, int n)
 {
     if (n == 1) return *(matrix);
     if (n == 2) return *(matrix) * *(matrix + 3) - *(matrix + 1) * *(matrix + 2);
     int d = 0, s = 1;
 
-    int* new_matrix = new int[(n - 1) * (n - 1)];
+    double* new_matrix = new double[(n - 1) * (n - 1)];
 
     //row cofactor along row 0
     for (int i = 0; i < n; i++)
@@ -66,11 +67,12 @@ int main()
     // calcuate det of og matrix and save it [done]
     // test if not invertible i.e. det == 0, then exit the program [done]
     // else create n-1 * n-1 matrix and (Malak)
-    // for n times, switch the ith row with the solution vector and calculate the det (Malak)
+    // for n times, switch the ith row with the solution vector and calculate the det (done)
     // divide by original det and save it in a 1d array (ghada)
     // output in turn (ghada)
 
-    int n, det_original;
+    int n;
+    double det_original;
     cout << "Please input the size of your matrix: ";
     cin >> n;
 
@@ -89,8 +91,8 @@ int main()
         return 1;
     }
 
-    int* solution = new int[n];
-    int* output = new int[n];
+    double* solution = new int[n];
+    double* output = new int[n];
 
     cout << "Please input your solution vector: ";
     for (int i = 0; i < n; i++)
