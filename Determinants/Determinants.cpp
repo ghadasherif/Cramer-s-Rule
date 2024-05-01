@@ -66,7 +66,6 @@ int main()
     // input solution vector [done]
     // calcuate det of og matrix and save it [done]
     // test if not invertible i.e. det == 0, then exit the program [done]
-    // else create n-1 * n-1 matrix and (Malak)
     // for n times, switch the ith row with the solution vector and calculate the det (done)
     // divide by original det and save it in a 1d array (ghada)
     // output in turn (ghada)
