@@ -37,7 +37,25 @@ int det(int* matrix, int n)
     delete[] new_matrix;
     return d;
 }
+//The function that changes the original determinant by the solution vector
+void changematrix(double* matrix,double* b,double* temporary_det, int n, int k)
+{
+    double* temporary_matrix = new double[n*n];
+    for(int i=0; i<n*n; i++)
+{
 
+   temporary_matrix[i] = matrix [i];
+
+}
+for(int i=0; i<n; i++)
+{
+
+    temporary_matrix[(i*n)+k] =b[i];
+
+}
+temporary_det[k] = det(temporary_matrix, n);
+delete[] temporary_matrix;
+}
 
 int main()
 {
@@ -56,7 +74,8 @@ int main()
     cout << "Please input the size of your matrix: ";
     cin >> n;
 
-    int* matrix = new int[n * n];
+    double* matrix = new double[n * n];
+    double* temporary_det= new double[n];
 
     cout << "Please input the elements of your matrix in row order, separated by spaces or escapes:\n ";
     for (int i = 0; i < n; i++)
@@ -78,6 +97,12 @@ int main()
         cin >> *(solution + i);
 
     cout << "\n";
+    // A function that stores the values for temporary determinants in the array temporary_det
+    for(int i=0; i<n; i++)
+    {
+      changematrix(matrix, b,temporary_det, n, i);
+
+    }
 
     delete[] matrix;
     delete[] solution;
