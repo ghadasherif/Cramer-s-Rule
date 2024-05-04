@@ -90,8 +90,8 @@ int main()
         return 1;
     }
 
-    double* solution = new int[n];
-    double* output = new int[n];
+    double* solution = new double[n];
+    double* output = new double[n];
 
     cout << "Please input your solution vector: ";
     for (int i = 0; i < n; i++)
