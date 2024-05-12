@@ -38,24 +38,29 @@ double det(double* matrix, int n)
     delete[] new_matrix;
     return d;
 }
-//The function that changes the original determinant by the solution vector
+//The function that changes the original determinant by the constants column-vector
 void changematrix(double* matrix,double* b,double* temporary_det, int n, int k)
 {
-    double* temporary_matrix = new double[n*n];
-    for(int i=0; i<n*n; i++)
+    double* temporary_matrix = new double[n*n]; //creating a temporary array which will store 
+                                                //the coefficient matrix after changing its kth column 
+                                                //by the constants column-vector.
+
+    for(int i=0; i<n*n; i++)                        
+                                                // loading the temporary array by the elements of the coefficient matrix
 {
 
    temporary_matrix[i] = matrix [i];
 
-}
-for(int i=0; i<n; i++)
+}      
+for(int i=0; i<n; i++)                      // Looping over the elements of the kth column to change it by the constants 
+                                            // column-vector
 {
 
     temporary_matrix[(i*n)+k] =b[i];
 
 }
-temporary_det[k] = det(temporary_matrix, n);
-delete[] temporary_matrix;
+temporary_det[k] = det(temporary_matrix, n);     // Calculating the determinant of the matrix after changing it
+delete[] temporary_matrix;                       // Deleting the temporary array to free some memory
 }
 
 int main()
